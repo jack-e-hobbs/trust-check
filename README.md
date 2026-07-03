@@ -1,12 +1,23 @@
 # Trust Check
 
 You just found a slick new MCP server or connector on Twitter/Reddit/a blog post. It
-promises to save you hours. Should you connect it?
+promises to save you hours or work or thousands of tokens. Should you connect it?
 
-**Trust Check answers that in plain English.** No security background needed. It also
-watches the connections you already trust, so if one of them quietly changes what it
-does weeks after you approved it (the "rug pull," a real, documented attack against
-AI tools), you find out instead of finding out the hard way.
+**Trust Check answers that in plain English.** No security background needed. It
+covers two real, documented risks:
+
+1. **The rug pull** — a connection looks clean on day one, then quietly changes what
+   it does weeks later, once enough people depend on it (sources:
+   [Practical DevSecOps](https://www.practical-devsecops.com/glossary/rug-pull-attack-in-mcp/),
+   [Waxell](https://www.waxell.ai/blog/mcp-rug-pull-attack)). Trust Check handles this
+   by fingerprinting every connection you approve and flagging the moment one changes —
+   see [Why it also checks tools you already approved](#why-it-also-checks-tools-you-already-approved).
+2. **Skill-file injection** — a `SKILL.md` or prompt file carries hidden instructions
+   that exfiltrate data or plant a backdoor, distributed through a public skill
+   marketplace (sources: [Snyk](https://snyk.io/blog/toxicskills-malicious-ai-agent-skills-clawhub/),
+   [eSecurity Planet](https://www.esecurityplanet.com/threats/hackers-turn-claude-ai-into-data-thief-with-new-attack/)).
+   Trust Check handles this via the sibling `audit-skill-file` skill — see
+   [Got a skill file, not a connection?](#got-a-skill-file-not-a-connection).
 
 ## What it tells you
 
@@ -33,10 +44,9 @@ here's who to report it to).
 
 ## Why it also checks tools you already approved
 
-Most security advice stops at "vet it before you connect it." That misses the actual
-attack: a tool can look clean on day one and be swapped out later, once enough people
-depend on it. Trust Check keeps a fingerprint of every connection you've approved and
-flags the moment one of them changes, before you find out the hard way.
+Most security advice stops at "vet it before you connect it." That misses the rug
+pull (see above): Trust Check keeps a fingerprint of every connection you've
+approved and flags the moment one of them changes, before you find out the hard way.
 
 ## Works across your tools
 
@@ -92,9 +102,10 @@ When in doubt, don't connect it. Ask a human first.
 
 If someone hands you a `SKILL.md`, custom command, or any other prompt/instruction
 file to install (especially one from social media rather than an official source), use
-the sibling **`audit-skill-file`** skill instead, it reads the file itself for
-embedded URLs and hidden AI-directed instructions, and tracks it the same way for
-later drift. Ask: **"check this skill file before I install it."**
+the sibling **`audit-skill-file`** skill instead — it reads the file itself for
+embedded URLs and hidden AI-directed instructions (see the skill-file injection risk
+above), and tracks it the same way for later drift. Ask: **"check this skill file
+before I install it."**
 
 ## Contributing
 
