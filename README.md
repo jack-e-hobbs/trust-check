@@ -61,7 +61,7 @@ standard library, no dependencies to install.
 ## Install (Claude Code / OpenCode)
 
 ```
-git clone https://github.com/<your-fork-or-org>/trust-check.git
+git clone https://github.com/jack-e-hobbs/trust-check.git
 ln -s "$(pwd)/trust-check" ~/.claude/skills/trust-check
 ln -s "$(pwd)/trust-check/audit-skill-file" ~/.claude/skills/audit-skill-file
 ```
