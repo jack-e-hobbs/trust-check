@@ -1,7 +1,7 @@
 # Trust Check
 
 You just found a slick new MCP server or connector on Twitter/Reddit/a blog post. It
-promises to save you hours or work or thousands of tokens. Should you connect it?
+promises to save you hours of work or thousands of tokens. Should you connect it?
 
 **Trust Check answers that in plain English.** No security background needed. It
 covers two real, documented risks:
