@@ -116,3 +116,7 @@ a real skill-file URL-safety database).
 ## License
 
 [MIT](LICENSE).
+
+---
+
+Built by [Jack Hobbs](https://jackhobbs.dev), digital analytics and martech consultant.
